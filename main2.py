@@ -195,6 +195,34 @@ def ex9():
     plt.show()
 
 
+def ex11():
+    """ Make bar chart. """
+    objects = ('янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек')
+    y_pos = np.arange(len(objects))
+
+    performance = []
+    with open('file3.txt') as _file:
+        for line in _file:
+            performance.append(float(line))
+
+    plt.bar(y_pos, performance, align='center', alpha=0.5)
+    plt.xticks(y_pos, objects)
+    plt.ylabel('Рубли')
+    plt.title('Курс доллара за 2018 год')
+
+    plt.show()
+
+
+def ex12():
+    """ Make diagram. """
+    data = [1036.4, 1500]
+    plt.figure(num=1, figsize=(6, 6))
+    plt.axes(aspect=1)
+    plt.title('Объем сделок по покупке долларов США \n и евро за рубли на 17.01.2017', size=14)
+    plt.pie(data, labels=('Доллары', 'Евро'))
+    plt.show()
+
+
 def main():
     num = int(input('Введите номер задачи: '))
     if num == 1:
@@ -209,6 +237,10 @@ def main():
         ex8()
     if num == 9:
         ex9()
+    if num == 11:
+        ex11()
+    if num == 12:
+        ex12()
 
 
 if __name__ == "__main__":
